@@ -1,0 +1,25 @@
+{
+  "name": "deck-api",
+  "version": "1.0.0",
+  "description": "Web service sample for playing cards, it's based on node.js with restify, will published to Microsoft Azure for testing",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app",
+    "test": "./node_modules/.bin/mocha test"
+  },
+  "keywords": [
+    "dec-api"
+  ],
+  "author": "Cheng Wu",
+  "license": "MIT",
+  "dependencies": {
+    "restify": "^7.2.3",
+    "restify-errors": "^6.1.1",
+    "shortid": "^2.2.14"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "supertest": "^3.3.0"
+  }
+}
