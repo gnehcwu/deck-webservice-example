@@ -1,6 +1,6 @@
 const chai = require('chai');
 const expect = chai.expect;
-const Deck = require('../deck');
+const Deck = require('../model/deck');
 
 describe('Deck', () => {
   let deck;

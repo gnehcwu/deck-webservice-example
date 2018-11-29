@@ -1,7 +1,7 @@
 {
   "name": "deck-api",
   "version": "1.0.0",
-  "description": "Web service sample for playing cards, it's based on node.js with restify, will published to Microsoft Azure for testing",
+  "description": "Web service sample for playing cards, it's based on node.js with restify",
   "main": "app.js",
   "scripts": {
     "start": "node app",

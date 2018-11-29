@@ -1,6 +1,6 @@
-const restify = require("restify");
-const errs = require("restify-errors");
-const Deck = require("./deck");
+const restify = require('restify');
+const errs = require('restify-errors');
+const Deck = require('./model/deck');
 
 // for storing decks in memory only.
 let deckPool = {};
@@ -36,7 +36,7 @@ server.use(handleNotFound);
     GET /api/deck/:id
     PUT /api/deck/:id/cut/:position
 */
-server.post("/api/deck/new", (req, res, next) => {
+server.post('/api/deck/new', (req, res, next) => {
   const deck = new Deck();
   deckPool[deck.id] = deck;
 
@@ -44,7 +44,7 @@ server.post("/api/deck/new", (req, res, next) => {
   return next();
 });
 
-server.put("/api/deck/:id/shuffle", (req, res, next) => {
+server.put('/api/deck/:id/shuffle', (req, res, next) => {
   const deck = res.deck;
   delete res.deck;
 
@@ -53,7 +53,7 @@ server.put("/api/deck/:id/shuffle", (req, res, next) => {
   return next();
 });
 
-server.put("/api/deck/:id/deal", (req, res, next) => {
+server.put('/api/deck/:id/deal', (req, res, next) => {
   const deck = res.deck;
   delete res.deck;
   card = deck.deal();
@@ -67,7 +67,7 @@ server.put("/api/deck/:id/deal", (req, res, next) => {
   return next();
 });
 
-server.put("/api/deck/:id/cut/:position", (req, res, next) => {
+server.put('/api/deck/:id/cut/:position', (req, res, next) => {
   const deck = res.deck;
   delete res.deck;
 
@@ -76,7 +76,7 @@ server.put("/api/deck/:id/cut/:position", (req, res, next) => {
   return next();
 });
 
-server.get("/api/deck/:id", (req, res, next) => {
+server.get('/api/deck/:id', (req, res, next) => {
   const deck = res.deck;
   delete res.deck;
 
