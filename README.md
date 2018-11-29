@@ -1,16 +1,16 @@
-# A web service example that returns shuffled decks of playing cards.
+# Deck Web Service Example
 [![Build Status](https://travis-ci.org/gnehcc/deck-webservice-example.svg?branch=master)](https://travis-ci.org/gnehcc/deck-webservice-example)
+
+A web service example that returns shuffled decks of playing cards.
 
 ### How to Start
 - clone the repository
 - `$ npm install` all the dependencies
 - `$ npm start`
-- use [curl](https://curl.haxx.se/) or tools like [postman](https://www.getpostman.com/) for running tests locally.
-
-Note: Project has integrated with [Travis CI](https://travis-ci.org/gnehcc/deck-webservice-example)
+- use [curl](https://curl.haxx.se/) or tools like [postman](https://www.getpostman.com/) for testing.
 
 ### Run Unit Test
-Go to your command line, change directory to the repo, and run `$ npm test` in command line.
+Go to the command line, change directory to the repo root, and run `$ npm test`.
 
 ### Supported routes
 - POST /api/deck/new

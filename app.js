@@ -84,13 +84,36 @@ server.get('/api/deck/:id', (req, res, next) => {
   return next();
 });
 
+// just for functional introductions
+server.get('/', (req, res, next) => {
+  const resBody = [
+    '<html>',
+    '<body>',
+    '<h2>Welcome to deck web service example</h2>',
+    '<h3>Supported routes:</h3>',
+    '<ul>',
+    '<li>/api/deck/new  POST</li>',
+    '<li>/api/deck/:id/shuffle  PUT</li>',
+    '<li>/api/deck/:id/deal  PUT</li>',
+    '<li>/api/deck/:id  GET</li>',
+    '<li>/api/deck/:id/cut/:position  PUT</li>',
+    '</ul>',
+    '</body>',
+    '</html>'
+  ].join('\n');
+  res.write(resBody);
+  res.end();
+  return next();
+});
+
 // General error handling
 server.on('restifyError', function (req, res, err, cb) {
   return cb(new errs.InternalServerError('an internal server error occurred, please try later!'));
 });
 
-// start the server when running unit tests
+// start the server when not running unit tests
 if (!module.parent) {
+  // using process.env.PORT for deploying to Azure app services
   server.listen(process.env.PORT || 8080, function () {
     console.log(`server listening at ${server.address().port}`);
   });
