@@ -98,6 +98,7 @@ server.get('/', (req, res, next) => {
     '<li>/api/deck/:id  GET</li>',
     '<li>/api/deck/:id/cut/:position  PUT</li>',
     '</ul>',
+    '<footer>More details please check the <a href="https://github.com/gnehcc/deck-webservice-example">Github Repository</a></footer>',
     '</body>',
     '</html>'
   ].join('\n');
