@@ -31,10 +31,13 @@ server.use(handleNotFound);
 /*
     Routes:
     POST /api/deck/new
-    PUT /api/deck/:id/shuffle
-    PUT /api/deck/:id/deal
+    POST /api/deck/:id/shuffle
+    POST /api/deck/:id/deal
     GET /api/deck/:id
-    PUT /api/deck/:id/cut/:position
+    POST /api/deck/:id/cut/:position
+
+    For shuffle, deal and cut operations, POST should be much more approperiate under current implementations,
+    since all these operations are not idempotent.
 */
 server.post('/api/deck/new', (req, res, next) => {
   const deck = new Deck();
@@ -44,7 +47,7 @@ server.post('/api/deck/new', (req, res, next) => {
   return next();
 });
 
-server.put('/api/deck/:id/shuffle', (req, res, next) => {
+server.post('/api/deck/:id/shuffle', (req, res, next) => {
   const deck = res.deck;
   delete res.deck;
 
@@ -53,7 +56,7 @@ server.put('/api/deck/:id/shuffle', (req, res, next) => {
   return next();
 });
 
-server.put('/api/deck/:id/deal', (req, res, next) => {
+server.post('/api/deck/:id/deal', (req, res, next) => {
   const deck = res.deck;
   delete res.deck;
   card = deck.deal();
@@ -67,7 +70,7 @@ server.put('/api/deck/:id/deal', (req, res, next) => {
   return next();
 });
 
-server.put('/api/deck/:id/cut/:position', (req, res, next) => {
+server.post('/api/deck/:id/cut/:position', (req, res, next) => {
   const deck = res.deck;
   delete res.deck;
 

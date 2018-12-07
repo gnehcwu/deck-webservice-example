@@ -31,7 +31,7 @@ describe('App', () => {
       });
   });
 
-  it('should deal a card on /api/deck/:id/deal PUT', done => {
+  it('should deal a card on /api/deck/:id/deal POST', done => {
     client
       .post('/api/deck/new')
       .expect('Content-Type', /json/)
@@ -39,7 +39,7 @@ describe('App', () => {
       .end((err, res) => {
         const deckId = res.body.id;
         client
-          .put(`/api/deck/${deckId}/deal`)
+          .post(`/api/deck/${deckId}/deal`)
           .expect(200)
           .end((err, res) => {
             const result = res.body;
@@ -49,7 +49,7 @@ describe('App', () => {
       });
   });
 
-  it('should shuffle a deck on /api/deck/:id/shuffle PUT', done => {
+  it('should shuffle a deck on /api/deck/:id/shuffle POST', done => {
     let originCards;
     client
       .post('/api/deck/new')
@@ -59,7 +59,7 @@ describe('App', () => {
         const deckId = res.body.id;
         originCards = res.body.cards;
         client
-          .put(`/api/deck/${deckId}/shuffle`)
+          .post(`/api/deck/${deckId}/shuffle`)
           .expect(200)
           .end((err, res) => {
             const result = res.body;
@@ -76,7 +76,7 @@ describe('App', () => {
       });
   });
 
-  it('should cut a deck on /api/deck/:id/cut/:position PUT', done => {
+  it('should cut a deck on /api/deck/:id/cut/:position POST', done => {
     let firstCard, secondCard;
     client
       .post('/api/deck/new')
@@ -88,7 +88,7 @@ describe('App', () => {
         firstCard = body.cards[0];
         secondCard = body.cards[1];
         client
-          .put(`/api/deck/${deckId}/cut/1`)
+          .post(`/api/deck/${deckId}/cut/1`)
           .expect(200)
           .end((err, res) => {
             const result = res.body;

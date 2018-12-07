@@ -14,10 +14,10 @@ Go to the command line, change directory to the repo root, and run `$ npm test`.
 
 ### Supported routes
 - POST /api/deck/new
-- PUT /api/deck/:id/shuffle
-- PUT /api/deck/:id/deal
+- POST /api/deck/:id/shuffle
+- POST /api/deck/:id/deal
 - GET /api/deck/:id
-- PUT /api/deck/:id/cut/:position
+- POST /api/deck/:id/cut/:position
 
 
 ### License
