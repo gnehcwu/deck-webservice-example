@@ -30,8 +30,7 @@ class Deck {
     let leftIndex, rightIndex = cards.length;
 
     while (rightIndex) {
-      rightIndex -= 1;
-      leftIndex = Math.floor(Math.random() * rightIndex);
+      leftIndex = Math.floor(Math.random() * rightIndex--);
       [cards[rightIndex], cards[leftIndex]] = [cards[leftIndex], cards[rightIndex]];
     }
 
